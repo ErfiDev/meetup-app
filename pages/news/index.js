@@ -1,36 +1,37 @@
 import {useState , useEffect} from "react";
 import Link from "next/link";
 
-const index = (props)=> {
-    const [data, setData] = useState([]);
+export async function getStaticProps(){
+    let get = await fetch("https://jsonplaceholder.typicode.com/users");
+    let res = await get.json();
 
-    useEffect(() => {
-        async function getData() {
-            const xhr = new XMLHttpRequest();
-            xhr.open("get", "https://jsonplaceholder.typicode.com/users");
-            xhr.send();
-
-            xhr.onreadystatechange = async () => {
-                if (xhr.readyState === 4) {
-                    let toJSON = JSON.parse(xhr.responseText);
-                    await setData(toJSON);
-                }
+    if(!res){
+        return {
+            redirect : {
+                destination: "/news/somthing",
             }
         }
+    } else {
+        return {
+            props: {res}
+        }
+    }
+}
 
-        getData()
-    }, []);
-
+const Index = (props)=> {
+    let {res} = props;
     return (
-        <div>
-            {data.map((item) => (
+        <ul>
+            {res.map((item) => (
                 <li key={item.id}>
                     <Link href={`/news/${encodeURIComponent(item.username)}`}>
-                        {item.username}
+                        <a>
+                            {item.id}
+                        </a>
                     </Link>
                 </li>
             ))}
-        </div>
+        </ul>
     )
 }
-export default index
+export default Index

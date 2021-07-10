@@ -1,7 +1,7 @@
 import Link from "next/link";
-import {useEffect} from 'react';
+import {useEffect} from "react";
 
-const homePage = ()=> {
+const HomePage = ()=> {
     useEffect(()=> {
         console.log("use effect has working");
     } , []);
@@ -21,4 +21,4 @@ const homePage = ()=> {
     )
 }
 
-export default homePage;
+export default HomePage;
