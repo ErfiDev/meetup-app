@@ -1,6 +1,9 @@
-const xxx = (props)=> {
-    console.log(props);
-    return <h1>slama xxx</h1>
+import {withRouter} from "next/router"
+
+const xxx = ({router})=> {
+    let {asPath} = router;
+
+    return <h1>{asPath}</h1>
 }
 
-export default xxx;
+export default withRouter(xxx);

@@ -1,15 +1,19 @@
 import Link from "next/link";
+import {useEffect} from 'react';
 
 const homePage = ()=> {
+    useEffect(()=> {
+        console.log("use effect has working");
+    } , []);
     return (
         <>
             <title>hello</title>
             <Link href="/news">
                 link
-            </Link>
+            </Link>&nbsp;
             <Link href="/news/somthing">
                 link2
-            </Link>
+            </Link>&nbsp;
             <Link href={`/news/salam`}>
                 link3
             </Link>
