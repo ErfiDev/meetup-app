@@ -6,13 +6,14 @@ const HomePage = ()=> {
             <title>hello</title>
             <Link href="/news">
                 link to news
-            </Link>{"  "}
+            </Link><br />
             <Link href={`/news/salam`}>
                 dynamic route
-            </Link>{"  "}
+            </Link><br />
             <Link href={"/news/something"}>
                 Something
-            </Link>
+            </Link><br />
+            <Link href="/serverSide">Server Side Props</Link>
         </>
     )
 }
