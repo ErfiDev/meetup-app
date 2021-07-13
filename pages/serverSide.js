@@ -10,7 +10,6 @@ const ServerSide = (props)=> {
 export async function getServerSideProps(context){
     let get = await fetch("https://jsonplaceholder.typicode.com/users");
     let res = await get.json();
-    console.log(context)
     if(!res){
         return {
             notFound: true

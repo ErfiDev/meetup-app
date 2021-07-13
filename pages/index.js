@@ -14,6 +14,10 @@ const HomePage = ()=> {
                 Something
             </Link><br />
             <Link href="/serverSide">Server Side Props</Link>
+            <br />
+            <Link href={"/swr"}>
+                SWR
+            </Link>
         </>
     )
 }
