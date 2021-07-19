@@ -1,0 +1,6 @@
+@use "./utils.module" as *;
+
+
+body {
+  #{$bc}: $backColor;
+}

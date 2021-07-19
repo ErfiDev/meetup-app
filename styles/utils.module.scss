@@ -1,0 +1,16 @@
+$bc : "background-color";
+$backColor: #334257;
+$fontColor: #96BAFF;
+$whiteColor: #EEEEEE;
+
+@mixin Flex($justify , $align) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin Flex($columns , $rows) {
+  display: grid;
+  grid-template-columns: $columns;
+  grid-template-rows: $rows;
+}
