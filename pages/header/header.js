@@ -1,16 +1,24 @@
- function Header(){
-    return (
-        <header className="block w-full h64 flex md:flex-row sm:flex-col flex-wrap">
-            <div className="flex-1">
-                Next.JS
-            </div>
-            <ul className="flex-1 flex flex-row flex-wrap m-0 p-0">
-                <li>Home</li>
-                <li>About</li>
-                <li>Contact</li>
-            </ul>
-        </header>
-    )
- }
+import Image from "next/image";
 
- export default Header
+function Header() {
+  return (
+    <header className="block bg-purple-700 w-full h64 flex flex-row flex-wrap">
+      <div className="flex-auto flex 2xl:flex flex-row justify-center items-center ">
+        <Image
+          className="cursor-pointer"
+          src="/shop.png"
+          alt="shop"
+          width="64px"
+          height="64px"
+        />
+      </div>
+      <ul className="flex-auto flex flex-row flex-wrap justify-center items-center m-0 p-0">
+        <li className="m-10 cursor-pointer">Home</li>
+        <li className="m-10 cursor-pointer">About</li>
+        <li className="m-10 cursor-pointer">Contact</li>
+      </ul>
+    </header>
+  );
+}
+
+export default Header;
