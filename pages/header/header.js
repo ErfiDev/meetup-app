@@ -6,7 +6,7 @@ function Header() {
       <div className="flex-auto flex 2xl:flex flex-row justify-center items-center ">
         <Image
           className="cursor-pointer"
-          src="/shop.png"
+          src="/meetup-logo.png"
           alt="shop"
           width="64px"
           height="64px"
