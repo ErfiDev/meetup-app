@@ -1,22 +1,23 @@
+import { useEffect } from "react";
 import Head from "next/head";
 import Layout from "./layouts/layout";
 import Main from "./main/main";
 
-
-const HomePage = ()=> {
-    return (
-        <>
-            <Head>
-                <title>Next App</title>
-                <link rel="preconnect" href="https://fonts.googleapis.com" />
-                <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
-                <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
-            </Head>
-            <Layout>
-                <Main />
-            </Layout>
-        </>
-    )
-}
+const HomePage = () => {
+  useEffect(() => {
+    document.getElementById("__next").className =
+      "bg-gray-100 w-screen box-border m-0 p-0";
+  });
+  return (
+    <>
+      <Head>
+        <title>Next App</title>
+      </Head>
+      <Layout>
+        <Main />
+      </Layout>
+    </>
+  );
+};
 
 export default HomePage;

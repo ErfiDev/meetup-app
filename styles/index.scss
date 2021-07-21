@@ -1,25 +1,10 @@
 @use "./utils.module" as *;
 @tailwind base;
 @tailwind components;
+@tailwind utilities;
 
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
-body {
-  margin: 0;
-  padding: 0;
-  @apply flex flex-col font-poppins;
-}
-
-#__next {
-  @apply bg-gray-100 container mx-auto box-border m-0 p-0;
-}
-
-.poppins {
-  font-family: "Poppins" , sans-serif;
-}
-
-@tailwind utilities;
