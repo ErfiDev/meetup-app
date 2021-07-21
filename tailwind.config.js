@@ -3,8 +3,12 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     fontFamily: {
-      "poppins": ["Poppins" , "sans-serif"]
-    }
+      poppins: ["Poppins", "sans-serif"],
+    },
+    minHeight: {
+      half: "70vh",
+      full: "100vh",
+    },
   },
   variants: {
     container: {
@@ -12,4 +16,4 @@ module.exports = {
     },
   },
   plugins: [],
-}
+};

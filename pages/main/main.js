@@ -1,9 +1,5 @@
 function Main() {
-    return (
-        <main>
-            Main component
-        </main>
-    )
+  return <main className="w-full min-h-half">Main component</main>;
 }
 
-export default Main
+export default Main;

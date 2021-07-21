@@ -6,7 +6,7 @@ import Main from "./main/main";
 const HomePage = () => {
   useEffect(() => {
     document.getElementById("__next").className =
-      "bg-gray-100 w-screen box-border m-0 p-0";
+      "bg-gray-100 min-h-full w-screen box-border m-0 p-0";
   });
   return (
     <>
