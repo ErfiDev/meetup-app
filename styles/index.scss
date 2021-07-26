@@ -1,7 +1,9 @@
-@use "./utils.module" as *;
+@use "utils.module" as *;
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import "header";
+
 
 *{
   margin: 0;

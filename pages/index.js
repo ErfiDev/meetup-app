@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import Head from "next/head";
-import Layout from "./layouts/layout";
-import Main from "./main/main";
+import Layout from "../components/layouts/layout";
+import Main from "../components/main/main";
 
 const HomePage = () => {
   useEffect(() => {

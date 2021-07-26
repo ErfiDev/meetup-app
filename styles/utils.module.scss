@@ -9,7 +9,7 @@ $whiteColor: #EEEEEE;
   align-items: $align;
 }
 
-@mixin Flex($columns , $rows) {
+@mixin Grid($columns , $rows) {
   display: grid;
   grid-template-columns: $columns;
   grid-template-rows: $rows;

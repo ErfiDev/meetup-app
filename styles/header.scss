@@ -1,0 +1,18 @@
+.header {
+    @include Grid(1fr 2fr , 1fr);
+
+    &-logo-container {
+        @include Flex(center , center);
+        
+        .header-logo {
+            @include Flex(center , center);
+        }
+    }
+
+    .header-list-options {
+        transition: all 0.3s ease-out;
+        &:hover {
+            letter-spacing: 2px;
+        }
+    }
+}
