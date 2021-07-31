@@ -38,14 +38,20 @@
             position: absolute;
             bottom: -2px;
             left: 0;
-            height: 3px;
+            height: 2px;
             width: 0;
             #{$bc}: white;
-            border-radius: 5px;
             transition: all 0.3s ease-out;
         }
         &:hover::after{
             width: 100%;
         }
+    }
+}
+
+.selected {
+    &::after {
+        content: "";
+        width: 100%;
     }
 }

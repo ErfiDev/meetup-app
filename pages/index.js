@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import Head from "next/head";
-import Layout from "../components/layouts/layout";
 import Main from "../components/main/main";
 
 const HomePage = () => {
@@ -13,9 +12,7 @@ const HomePage = () => {
       <Head>
         <title>Next App</title>
       </Head>
-      <Layout>
-        <Main />
-      </Layout>
+      <Main />
     </>
   );
 };
