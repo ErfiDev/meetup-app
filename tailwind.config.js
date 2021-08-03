@@ -10,6 +10,9 @@ module.exports = {
       full: "100vh",
       forHeader: "20vh",
     },
+    boxShadow: {
+      lg: "0 10px 20px -2px black",
+    },
   },
   variants: {
     container: {

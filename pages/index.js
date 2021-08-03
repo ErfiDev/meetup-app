@@ -8,11 +8,13 @@ const rawData = [
     name: "first meetup",
     address: "1 street",
     image: "/image.jpg",
+    key: "1",
   },
   {
     name: "first meetup",
     address: "1 street",
     image: "/image.jpg",
+    key: "2",
   },
 ];
 
