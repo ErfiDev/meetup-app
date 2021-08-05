@@ -1,12 +1,9 @@
 import Image from "next/image";
-// import Router from "next/router";
+import { useRouter } from "next/router";
+import Link from "next/link";
 
 function Header() {
-  // let { asPath } = Router;
-  // console.log(asPath);
-
-  let asPath = "/All";
-
+  let { asPath } = useRouter();
   return (
     <header className="header block bg-purple-700 w-full h-auto min-h-forHeader">
       <div className="header-logo-container">
@@ -21,30 +18,30 @@ function Header() {
       <ul className="header-list flex flex-row flex-wrap justify-center items-center m-0 p-0">
         <li
           className={
-            asPath === "/All"
-              ? "selected header-list-options m-10 cursor-pointer text-base antialiased text-white"
+            asPath === "/"
+              ? "text-gray-300 header-list-options m-10 cursor-pointer text-base antialiased text-white"
               : "header-list-options m-10 cursor-pointer text-base antialiased text-white"
           }
         >
-          All meetups
+          <Link href="/">All meetups</Link>
         </li>
         <li
           className={
             asPath === "/addNew"
-              ? "selected header-list-options m-10 cursor-pointer text-base antialiased text-white"
+              ? "text-gray-300 header-list-options m-10 cursor-pointer text-base antialiased text-white"
               : "header-list-options m-10 cursor-pointer text-base antialiased text-white"
           }
         >
-          Add new meetup
+          <Link href="/addNew">Add new meetup</Link>
         </li>
         <li
           className={
             asPath === "/favorites"
-              ? "selected header-list-options m-10 cursor-pointer text-base antialiased text-white"
+              ? "text-gray-300 header-list-options m-10 cursor-pointer text-base antialiased text-white"
               : "header-list-options m-10 cursor-pointer text-base antialiased text-white"
           }
         >
-          My favorites
+          <Link href="/favorites">My favorites</Link>
         </li>
       </ul>
     </header>
