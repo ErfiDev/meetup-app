@@ -11,7 +11,7 @@ function Main({ dataArray }) {
           <Image
             width="750px"
             height="450px"
-            className="object-cover w-full rounded"
+            className="w-full rounded overflow-hidden cursor-pointer object-cover"
             src={item.image}
             alt="image"
           />
