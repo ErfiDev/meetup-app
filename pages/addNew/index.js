@@ -1,4 +1,3 @@
-import AddNewComponent from "../../components/main/addNew";
 import Layout from "../../components/layouts/layout";
 import Head from "next/head";
 
@@ -8,7 +7,11 @@ const AddNew = () => {
       <Head>
         <title>Add New Meet Up</title>
       </Head>
-      <AddNewComponent />
+      <section className="w-full min-h-half flex justify-center items-center p-10">
+        <form>
+          <input type="text" />
+        </form>
+      </section>
     </Layout>
   );
 };
