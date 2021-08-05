@@ -26,7 +26,7 @@ const HomePage = () => {
   return (
     <Layout>
       <Head>
-        <title>Next App</title>
+        <title>Home</title>
       </Head>
       <Main dataArray={rawData} />
     </Layout>
