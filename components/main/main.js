@@ -2,15 +2,15 @@ import Image from "next/image";
 
 function Main({ dataArray }) {
   return (
-    <main className="w-full min-h-half flex flex-col justify-around items-center">
+    <main className="w-full min-h-half flex justify-around items-start">
       {dataArray.map((item) => (
         <div
           key={item.key}
-          className="w-3/4 h-auto flex flex-col justify-around items-center p-10 m-10 shadow-lg shadow-inner rounded-lg"
+          className="w-2/5 h-auto flex flex-col justify-around items-center p-5 m-10 backdrop-filter backdrop-blur-md bg-purple-200 rounded-lg"
         >
           <Image
             width="750px"
-            height="250px"
+            height="450px"
             className="object-cover w-full rounded"
             src={item.image}
             alt="image"
