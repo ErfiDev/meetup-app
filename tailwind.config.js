@@ -9,6 +9,7 @@ module.exports = {
       half: "70vh",
       full: "100vh",
       forHeader: "20vh",
+      forFooter: "35vh",
     },
     boxShadow: {
       lg: "0 10px 20px -2px black",
