@@ -7,13 +7,15 @@ function Header() {
   return (
     <header className="header block bg-purple-700 w-full h-auto min-h-forHeader">
       <div className="header-logo-container">
-        <Image
-          className="header-logo"
-          src="/meetup-logo.png"
-          width="60px"
-          height="60px"
-          alt="logo"
-        />
+        <Link href="/" passHref>
+          <Image
+            className="header-logo cursor-pointer"
+            src="/meetup-logo.png"
+            width="60px"
+            height="60px"
+            alt="logo"
+          />
+        </Link>
       </div>
       <ul className="header-list flex flex-row flex-wrap justify-center items-center m-0 p-0">
         <li
