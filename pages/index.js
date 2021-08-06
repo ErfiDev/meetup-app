@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import Main from "../components/main/main";
+import nProgress from "nprogress";
 
 const rawData = [
   {
@@ -24,19 +25,14 @@ const HomePage = () => {
     document.getElementById("__next").className =
       "bg-gray-100 min-h-full w-full box-border m-0 p-0";
 
-    const handleRouteChange = (url, { shallow }) => {
-      console.log(
-        `App is changing to ${url} ${
-          shallow ? "with" : "without"
-        } shallow routing`
-      );
-    };
-    router.events.on("routeChangeStart", handleRouteChange);
+    router.events.on("routeChangeStart", (url, { shallow }) => {
+      nProgress.start();
+    });
 
     return () => {
-      router.events.off("routeChangeStart", handleRouteChange);
+      nProgress.done();
     };
-  });
+  }, []);
   return (
     <>
       <Head>
