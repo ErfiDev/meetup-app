@@ -3,6 +3,7 @@ import Head from "next/head";
 import { useEffect } from "react";
 import nProgress from "nprogress";
 import { useRouter } from "next/router";
+import swr from "swr";
 
 const AddNew = () => {
   async function submitHandler(event, data) {
