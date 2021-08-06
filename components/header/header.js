@@ -21,7 +21,7 @@ function Header() {
         <li
           className={
             asPath === "/"
-              ? "text-gray-300 header-list-options m-10 cursor-pointer text-base antialiased text-white"
+              ? "selected header-list-options m-10 cursor-pointer text-base antialiased text-white"
               : "header-list-options m-10 cursor-pointer text-base antialiased text-white"
           }
         >
@@ -30,7 +30,7 @@ function Header() {
         <li
           className={
             asPath === "/addNew"
-              ? "text-gray-300 header-list-options m-10 cursor-pointer text-base antialiased text-white"
+              ? "selected header-list-options m-10 cursor-pointer text-base antialiased text-white"
               : "header-list-options m-10 cursor-pointer text-base antialiased text-white"
           }
         >
@@ -39,7 +39,7 @@ function Header() {
         <li
           className={
             asPath === "/favorites"
-              ? "text-gray-300 header-list-options m-10 cursor-pointer text-base antialiased text-white"
+              ? "selected header-list-options m-10 cursor-pointer text-base antialiased text-white"
               : "header-list-options m-10 cursor-pointer text-base antialiased text-white"
           }
         >
