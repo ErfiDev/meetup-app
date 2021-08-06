@@ -1,7 +1,7 @@
 import { useEffect } from "react";
+import { useRouter } from "next/router";
 import Head from "next/head";
 import Main from "../components/main/main";
-import Layout from "../components/layouts/layout";
 
 const rawData = [
   {
@@ -19,17 +19,31 @@ const rawData = [
 ];
 
 const HomePage = () => {
+  const router = useRouter();
   useEffect(() => {
     document.getElementById("__next").className =
       "bg-gray-100 min-h-full w-full box-border m-0 p-0";
+
+    const handleRouteChange = (url, { shallow }) => {
+      console.log(
+        `App is changing to ${url} ${
+          shallow ? "with" : "without"
+        } shallow routing`
+      );
+    };
+    router.events.on("routeChangeStart", handleRouteChange);
+
+    return () => {
+      router.events.off("routeChangeStart", handleRouteChange);
+    };
   });
   return (
-    <Layout>
+    <>
       <Head>
         <title>Home</title>
       </Head>
       <Main dataArray={rawData} />
-    </Layout>
+    </>
   );
 };
 

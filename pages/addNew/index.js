@@ -1,4 +1,3 @@
-import Layout from "../../components/layouts/layout";
 import AddNewCom from "../../components/addNew";
 import Head from "next/head";
 
@@ -8,12 +7,12 @@ const AddNew = () => {
     console.log(data);
   }
   return (
-    <Layout>
+    <>
       <Head>
         <title>Add New Meet Up</title>
       </Head>
       <AddNewCom submitHandler={submitHandler} />
-    </Layout>
+    </>
   );
 };
 
