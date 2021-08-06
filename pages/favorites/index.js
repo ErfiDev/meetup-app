@@ -7,7 +7,7 @@ const Favorites = () => {
       <Head>
         <title>Favorites</title>
       </Head>
-      <section>this</section>
+      <section className="w-full min-h-half">this is a favoprites page</section>
     </Layout>
   );
 };
