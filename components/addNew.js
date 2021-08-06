@@ -1,7 +1,40 @@
-const AddNew = () => {
+import { useState } from "react";
+
+const AddNew = ({ submitHandler }) => {
+  const [data, setData] = useState({
+    title: "",
+    description: "",
+    address: "",
+    image: "",
+  });
+
+  const onChange = (prop) => (event) => {
+    setData({ ...data, [prop]: event.target.value });
+  };
+
+  function previewFile() {
+    const input = document.querySelector("input[type=file]").files[0];
+    const reader = new FileReader();
+    reader.addEventListener("load", async () => {
+      if (input.size > 1000000) {
+        const inputS = document.querySelector("input[type=file]");
+        inputS.value = "";
+        return alert("image size is higher than 1 mb");
+      } else {
+        await setData({ ...data, image: reader.result });
+      }
+    });
+    if (input) {
+      reader.readAsDataURL(input);
+    }
+  }
+
   return (
     <section className="w-full min-h-half flex justify-center items-center p-10">
-      <form className="w-full max-w-sm">
+      <form
+        className="w-full max-w-sm"
+        onSubmit={(e) => submitHandler(e, data)}
+      >
         <div className="md:flex md:items-center mb-6">
           <div className="md:w-1/3">
             <label
@@ -17,6 +50,8 @@ const AddNew = () => {
               id="title"
               type="text"
               placeholder="Title"
+              onChange={onChange("title")}
+              value={data.title}
             />
           </div>
         </div>
@@ -35,6 +70,8 @@ const AddNew = () => {
               id="Description"
               type="text"
               placeholder="Description"
+              onChange={onChange("description")}
+              value={data.description}
             />
           </div>
         </div>
@@ -53,6 +90,8 @@ const AddNew = () => {
               id="Address"
               type="text"
               placeholder="Address"
+              onChange={onChange("address")}
+              value={data.address}
             />
           </div>
         </div>
@@ -70,6 +109,7 @@ const AddNew = () => {
               className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
               id="Image"
               type="file"
+              onChange={previewFile}
             />
           </div>
         </div>
