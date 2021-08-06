@@ -59,26 +59,6 @@ const AddNew = ({ submitHandler }) => {
           <div className="md:w-1/3">
             <label
               className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
-              htmlFor="Description"
-            >
-              Description
-            </label>
-          </div>
-          <div className="md:w-2/3">
-            <input
-              className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
-              id="Description"
-              type="text"
-              placeholder="Description"
-              onChange={onChange("description")}
-              value={data.description}
-            />
-          </div>
-        </div>
-        <div className="md:flex md:items-center mb-6">
-          <div className="md:w-1/3">
-            <label
-              className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
               htmlFor="Address"
             >
               Address
@@ -93,6 +73,26 @@ const AddNew = ({ submitHandler }) => {
               onChange={onChange("address")}
               value={data.address}
             />
+          </div>
+        </div>
+        <div className="md:flex md:items-center mb-6">
+          <div className="md:w-1/3">
+            <label
+              className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
+              htmlFor="Description"
+            >
+              Description
+            </label>
+          </div>
+          <div className="md:w-2/3">
+            <textarea
+              className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+              id="Description"
+              type="text"
+              placeholder="Description"
+              onChange={onChange("description")}
+              value={data.description}
+            ></textarea>
           </div>
         </div>
         <div className="md:flex md:items-center mb-6">
