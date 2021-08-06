@@ -1,6 +1,6 @@
 import "tailwindcss/tailwind.css";
-import "../styles/index.scss";
 import "nprogress/nprogress.css";
+import "../styles/index.scss";
 import Layout from "../components/layouts/layout";
 import nProgress from "nprogress";
 import { useEffect } from "react";
