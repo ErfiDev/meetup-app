@@ -92,6 +92,7 @@ const AddNew = ({ submitHandler }) => {
               placeholder="Description"
               onChange={onChange("description")}
               value={data.description}
+              rows="8"
             ></textarea>
           </div>
         </div>
