@@ -14,6 +14,7 @@ function Main({ dataArray }) {
             className="w-full rounded overflow-hidden cursor-pointer object-cover"
             src={item.image}
             alt="image"
+            title={item.name}
           />
           <h2 className="overflow-ellipsis text-left p-2 my-2.5">
             {item.name}
