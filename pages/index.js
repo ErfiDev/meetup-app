@@ -4,22 +4,7 @@ import Head from "next/head";
 import Main from "../components/main/main";
 import nProgress from "nprogress";
 
-const rawData = [
-  {
-    name: "first meetup",
-    address: "1 street",
-    image: "/image.jpg",
-    key: "1",
-  },
-  {
-    name: "first meetup",
-    address: "1 street",
-    image: "/image.jpg",
-    key: "2",
-  },
-];
-
-const HomePage = () => {
+const HomePage = ({ dataArray }) => {
   const router = useRouter();
   useEffect(() => {
     document.getElementById("__next").className =
@@ -38,9 +23,21 @@ const HomePage = () => {
       <Head>
         <title>Home</title>
       </Head>
-      <Main dataArray={rawData} />
+      <Main dataArray={dataArray} />
     </>
   );
 };
+
+export async function getStaticProps() {
+  const res = await fetch("http://localhost:3000/api/meetup", {
+    method: "GET",
+  });
+  const json = await res.json();
+  return {
+    props: {
+      dataArray: json.data,
+    },
+  };
+}
 
 export default HomePage;
