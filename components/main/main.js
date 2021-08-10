@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 function Main({ dataArray }) {
   return (
@@ -17,7 +18,7 @@ function Main({ dataArray }) {
             title={item.name}
           />
           <h2 className="overflow-ellipsis text-left p-2 my-2.5">
-            {item.name}
+            <Link href={`/meetup/${item.key}`}>{item.name}</Link>
           </h2>
           <address className="overflow-ellipsis text-left p-2 ">
             {item.address}
