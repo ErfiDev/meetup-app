@@ -1,9 +1,20 @@
 import { useRouter } from "next/router";
+import { useEffect } from "react";
 import DummyData from "../../meetUps.json";
+import nProgress from "nprogress";
 
 const MeetUp = ({ meetup }) => {
   const router = useRouter();
   const { key } = router.query;
+  useEffect(() => {
+    router.events.on("routeChangeStart", (url, { shallow }) => {
+      nProgress.start();
+    });
+
+    return () => {
+      nProgress.done();
+    };
+  }, []);
 
   return (
     <section
