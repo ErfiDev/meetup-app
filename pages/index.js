@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import Head from "next/head";
 import Main from "../components/main/main";
 import nProgress from "nprogress";
+import DummyData from "../meetUps.json";
 
 const HomePage = ({ dataArray }) => {
   const router = useRouter();
@@ -29,13 +30,9 @@ const HomePage = ({ dataArray }) => {
 };
 
 export async function getStaticProps() {
-  const res = await fetch("http://localhost:3000/api/meetup", {
-    method: "GET",
-  });
-  const json = await res.json();
   return {
     props: {
-      dataArray: json.data,
+      dataArray: DummyData,
     },
   };
 }

@@ -1,0 +1,20 @@
+[
+  {
+    "name": "first meetup",
+    "address": "in the karaj",
+    "image": "/image.jpg",
+    "key": "1"
+  },
+  {
+    "name": "learning development",
+    "address": "in the karaj",
+    "image": "/image.jpg",
+    "key": "2"
+  },
+  {
+    "name": "java data structure",
+    "address": "in the karaj",
+    "image": "/image.jpg",
+    "key": "3"
+  }
+]

@@ -1,10 +1,15 @@
 import { useRouter } from "next/router";
+import DummyData from "../../meetUps.json";
 
 const MeetUp = ({ meetup }) => {
   const router = useRouter();
+  const { key } = router.query;
 
   return (
-    <section className="w-full min-h-half flex flex-col justify-around items-center">
+    <section
+      key={key}
+      className="w-full min-h-half flex flex-col justify-around items-center"
+    >
       <h1>{meetup.name}</h1>
       <address>{meetup.adress}</address>
     </section>
@@ -12,12 +17,7 @@ const MeetUp = ({ meetup }) => {
 };
 
 export async function getStaticPaths() {
-  const res = await fetch("http://localhost:3000/api/meetup", {
-    method: "GET",
-  });
-  const data = await res.json();
-
-  let params = data.data.map((item) => {
+  let params = DummyData.map((item) => {
     return {
       params: { key: item.key },
     };
@@ -31,14 +31,11 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   let { key } = params;
-  const res = await fetch("http://localhost:3000/api/meetup/" + key, {
-    method: "GET",
-  });
-  let data = await res.json();
+  let filter = DummyData.filter((item) => item.key === key)[0];
 
   return {
     props: {
-      meetup: JSON.stringify(data.data),
+      meetup: filter,
     },
   };
 }
