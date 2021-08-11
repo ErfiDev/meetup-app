@@ -27,22 +27,16 @@ const MeetUp = ({ meetup }) => {
   );
 };
 
-export async function getStaticPaths() {
-  let params = DummyData.map((item) => {
-    return {
-      params: { key: item.key },
-    };
-  });
-
-  return {
-    paths: params,
-    fallback: false,
-  };
-}
-
-export async function getStaticProps({ params }) {
+export async function getServerSideProps({ params }) {
   let { key } = params;
+  let condition = DummyData.some(item => item.key === key);
   let filter = DummyData.filter((item) => item.key === key)[0];
+
+  if(!condition){
+    return {
+      notFound: true
+    }
+  }
 
   return {
     props: {

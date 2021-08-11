@@ -29,7 +29,7 @@ const HomePage = ({ dataArray }) => {
   );
 };
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   return {
     props: {
       dataArray: DummyData,
