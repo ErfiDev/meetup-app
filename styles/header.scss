@@ -58,13 +58,14 @@
 }
 
 .flexible-menu{
-    display: none;
     position: fixed;
     top: 0;
-    left: 0;
-    width: 50%;
+    left: -100vw;
+    width: 70%;
     height: 100%;
     #{$bc}: #6D28D9;
+    z-index: 150;
+    transition: all 0.2s ease-in-out;
 }
 
 .flexible-menu-button{
@@ -79,6 +80,7 @@
     bottom: 20px;
     right: 20px;
     cursor: pointer;
+    z-index: 200;
     @media (max-width: 535px){
         display: flex;
     }
