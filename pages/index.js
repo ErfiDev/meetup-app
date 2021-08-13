@@ -6,7 +6,7 @@ import nProgress from "nprogress";
 import DummyData from "../meetUps.json";
 
 const HomePage = ({ dataArray }) => {
-  const router = useRouter();
+  const router = useRouter(); 
   useEffect(() => {
     document.getElementById("__next").className =
       "bg-gray-100 min-h-full w-full box-border m-0 p-0";
@@ -29,7 +29,7 @@ const HomePage = ({ dataArray }) => {
   );
 };
 
-export async function getServerSideProps() {
+export async function getServerSideProps(context) {
   return {
     props: {
       dataArray: DummyData,
