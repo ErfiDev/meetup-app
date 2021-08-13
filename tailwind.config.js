@@ -10,6 +10,7 @@ module.exports = {
       full: "100vh",
       forHeader: "20vh",
       forFooter: "35vh",
+      forBackLinks: "10vh",
     },
     boxShadow: {
       lg: "0 10px 20px -2px black",

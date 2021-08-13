@@ -14,3 +14,22 @@
 #nprogress .bar {
   background: #fff !important;
 }
+
+.btn-signin-meetup{
+  border: solid 2px white;
+  &:hover{
+    border: solid 2px black;
+    #{$bc}: white;
+    color: black;
+  }
+}
+
+.backlink-container{
+  button{
+    border-bottom: solid 3px #6D28D9;
+    color: #6D28D9;
+    &:hover{
+      letter-spacing: 2px;
+    }
+  }
+}
