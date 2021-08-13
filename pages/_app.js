@@ -4,6 +4,7 @@ import "../styles/index.scss";
 import Layout from "../components/layouts/layout";
 import nProgress from "nprogress";
 import { useEffect } from "react";
+import { FlexibleMenuButton } from "../components/flexibleMenu";
 
 function MyApp({ Component, pageProps }) {
   useEffect(() => {
@@ -12,6 +13,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <Layout>
       <Component {...pageProps} />
+      <FlexibleMenuButton />
     </Layout>
   );
 }
