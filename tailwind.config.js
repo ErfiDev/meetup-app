@@ -12,6 +12,10 @@ module.exports = {
       forFooter: "35vh",
       forBackLinks: "10vh",
     },
+    minWidth: {
+      lg: "65%",
+      sm: "30%",
+    },
     boxShadow: {
       lg: "0 10px 20px -2px black",
     },
