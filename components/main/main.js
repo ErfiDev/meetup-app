@@ -23,9 +23,9 @@ function Main({ dataArray }) {
           <address className="overflow-ellipsis text-left p-2 ">
             {item.address}
           </address>
-          <button className="w-1/4 p-1 mt-20 bg-purple-700 text-2xl text-white rounded-md delay-300 hover:bg-purple-900">
-            Show Details
-          </button>
+          <p className="text-base mt-10 text-purple-700 no-underline hover:underline">
+            <Link href={`/meetup/${item.key}`}>Show details</Link>
+          </p>
         </div>
       ))}
     </main>
