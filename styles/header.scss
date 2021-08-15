@@ -27,27 +27,28 @@
             @include Flex(center , center);
         }
     }
-    .header-list-options {
-        transition: all 0.3s ease-out;
-        position: relative;
-        &::after {
-            content: "";
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            height: 2px;
-            width: 0;
-            #{$bc}: white;
-            transition: all 0.3s ease-out;
-        }
-        &:hover::after{
-            width: 100%;
-        }
-    }
 
     .li-signin{
         padding-left: 10px;
         border-left: solid 2px white;
+    }
+}
+
+.header-list-options {
+    transition: all 0.3s ease-out;
+    position: relative;
+    &::after {
+        content: "";
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        height: 2px;
+        width: 0;
+        #{$bc}: white;
+        transition: all 0.3s ease-out;
+    }
+    &:hover::after{
+        width: 100%;
     }
 }
 
@@ -66,6 +67,11 @@
     #{$bc}: #6D28D9;
     z-index: 150;
     transition: all 0.2s ease-in-out;
+    &-signin{
+        margin: 30px 0 0 0;
+        border-top: dotted 2px white;
+        padding: 5px 0 0 0;
+    }
 }
 
 .flexible-menu-button{
