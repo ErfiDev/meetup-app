@@ -1,19 +1,21 @@
 import { useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 export const SignIn = () => {
   const [data, setData] = useState({
     username: "",
     password: "",
   });
+  const router = useRouter();
 
   const onChange = (prop) => (event) => {
     setData({ ...data, [prop]: event.target.value });
   };
 
   return (
-    <section className="w-full min-h-half flex justify-center items-center flex-col">
-      <form className="w-auto min-w-sm">
+    <section className="w-full min-h-half h-auto flex justify-center items-center flex-col">
+      <form className="w-auto min-w-sm mt-10">
         <div className="md:flex md:items-center mb-6">
           <div className="md:w-1/3">
             <label
@@ -75,6 +77,14 @@ export const SignIn = () => {
           Forget password!
         </button>
       </div>
+      <div className="backlink-container mt-10 w-full flex justify-center items-center min-h-forBackLinks">
+        <button
+          className="bg-none transition-all outline-none border-none text-2xl"
+          onClick={() => router.back()}
+        >
+          Back
+        </button>
+      </div>
     </section>
   );
 };
@@ -85,14 +95,15 @@ export const Register = () => {
     email: "",
     password: "",
   });
+  const router = useRouter();
 
   const onChange = (prop) => (event) => {
     setData({ ...data, [prop]: event.target.value });
   };
 
   return (
-    <section className="w-full min-h-half flex justify-center items-center flex-col">
-      <form className="w-auto min-w-sm">
+    <section className="w-full min-h-half h-auto flex justify-center items-center flex-col">
+      <form className="w-auto min-w-sm mt-10">
         <div className="md:flex md:items-center mb-6">
           <div className="md:w-1/3">
             <label
@@ -172,6 +183,14 @@ export const Register = () => {
         </button>
         <button className="shadow bg-red-500 hover:bg-red-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded">
           Forget password!
+        </button>
+      </div>
+      <div className="backlink-container mt-10 w-full flex justify-center items-center min-h-forBackLinks">
+        <button
+          className="bg-none transition-all outline-none border-none text-2xl"
+          onClick={() => router.back()}
+        >
+          Back
         </button>
       </div>
     </section>
