@@ -2,7 +2,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-export const SignIn = () => {
+export const SignIn = ({ formHandler }) => {
   const [data, setData] = useState({
     username: "",
     password: "",
@@ -15,7 +15,10 @@ export const SignIn = () => {
 
   return (
     <section className="w-full min-h-half h-auto flex justify-center items-center flex-col">
-      <form className="w-auto min-w-sm mt-10">
+      <form
+        className="w-auto min-w-sm mt-10"
+        onSubmit={(e) => formHandler(e, data)}
+      >
         <div className="md:flex md:items-center mb-6">
           <div className="md:w-1/3">
             <label
@@ -89,7 +92,7 @@ export const SignIn = () => {
   );
 };
 
-export const Register = () => {
+export const Register = ({ formHandler }) => {
   const [data, setData] = useState({
     username: "",
     email: "",
@@ -103,7 +106,10 @@ export const Register = () => {
 
   return (
     <section className="w-full min-h-half h-auto flex justify-center items-center flex-col">
-      <form className="w-auto min-w-sm mt-10">
+      <form
+        className="w-auto min-w-sm mt-10"
+        onSubmit={(e) => formHandler(e, data)}
+      >
         <div className="md:flex md:items-center mb-6">
           <div className="md:w-1/3">
             <label

@@ -18,12 +18,17 @@ const AccountPage = () => {
     };
   }, []);
 
+  async function formHandler(event, data) {
+    event.preventDefault();
+    console.log(data);
+  }
+
   return (
     <>
       <Head>
         <title>Account</title>
       </Head>
-      <Register />
+      <Register formHandler={formHandler} />
     </>
   );
 };

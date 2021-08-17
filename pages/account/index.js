@@ -16,12 +16,17 @@ const AccountPage = () => {
     };
   }, []);
 
+  async function formHandler(event, data) {
+    event.preventDefault();
+    console.log(data);
+  }
+
   return (
     <>
       <Head>
         <title>Account / sign in</title>
       </Head>
-      <SignIn />
+      <SignIn formHandler={formHandler} />
     </>
   );
 };
