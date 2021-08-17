@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "express": "^4.17.1",
+    "mongoose": "^5.13.7",
     "next": "11.0.1",
     "nodemon": "^2.0.12",
     "nprogress": "^0.2.0",
