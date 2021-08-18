@@ -20,15 +20,22 @@ export default async function handler(req, res) {
         status: 400,
       });
     } else {
-      let hashPass = await bcrypt.hash(password, 10);
-      let connector = Connector((msg) => {
+      let connector = Connector(async (msg) => {
         if (!msg) {
           res.json({
             msg: "we have the server error",
             status: 500,
           });
         }
+        let findByUsername = await UserSchema.find({ username });
+        if (findByUsername.length > 0) {
+          return res.json({
+            msg: "this username used please change!",
+            status: 400,
+          });
+        }
 
+        let hashPass = await bcrypt.hash(password, 10);
         new UserSchema({
           username,
           email,
