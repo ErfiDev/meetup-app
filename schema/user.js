@@ -16,9 +16,11 @@ const UserSchema = new Schema({
       date: { type: Date, required: true },
       from: { type: String, required: true },
       joinedPeople: [{ id: { type: String, required: true } }],
+      meetup_id: { type: String, default: () => uuidv4() },
     },
   ],
   id: { type: String, default: () => uuidv4() },
+  favorites: [{ meetup_id: { type: String, required: true } }],
 });
 
 export default Mongoose.model("user", UserSchema);
