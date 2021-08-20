@@ -1,12 +1,19 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import DateUtil from "../utils/date";
 
 const AddNew = ({ submitHandler }) => {
   const [data, setData] = useState({
-    title: "",
-    description: "",
+    name: "",
     address: "",
     image: "",
+    date: "",
   });
+  const [min, setMin] = useState("");
+
+  useEffect(() => {
+    const now = new DateUtil(null, "T");
+    setMin(now.getDate());
+  }, []);
 
   const onChange = (prop) => (event) => {
     setData({ ...data, [prop]: event.target.value });
@@ -50,8 +57,8 @@ const AddNew = ({ submitHandler }) => {
               id="title"
               type="text"
               placeholder="Title"
-              onChange={onChange("title")}
-              value={data.title}
+              onChange={onChange("name")}
+              value={data.name}
             />
           </div>
         </div>
@@ -79,27 +86,6 @@ const AddNew = ({ submitHandler }) => {
           <div className="md:w-1/3">
             <label
               className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
-              htmlFor="Description"
-            >
-              Description
-            </label>
-          </div>
-          <div className="md:w-2/3">
-            <textarea
-              className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
-              id="Description"
-              type="text"
-              placeholder="Description"
-              onChange={onChange("description")}
-              value={data.description}
-              rows="8"
-            ></textarea>
-          </div>
-        </div>
-        <div className="md:flex md:items-center mb-6">
-          <div className="md:w-1/3">
-            <label
-              className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
               htmlFor="Image"
             >
               Image
@@ -111,6 +97,26 @@ const AddNew = ({ submitHandler }) => {
               id="Image"
               type="file"
               onChange={previewFile}
+            />
+          </div>
+        </div>
+        <div className="md:flex md:items-center mb-6">
+          <div className="md:w-1/3">
+            <label
+              className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
+              htmlFor="Date"
+            >
+              Date
+            </label>
+          </div>
+          <div className="md:w-2/3">
+            <input
+              className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+              id="Date"
+              type="datetime-local"
+              onChange={onChange("date")}
+              value={data.date}
+              min={min}
             />
           </div>
         </div>
