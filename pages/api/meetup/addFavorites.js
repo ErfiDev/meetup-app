@@ -13,7 +13,7 @@ export default async function handler(req, res) {
   let { id, meetupId } = req.query;
   if (!id || !meetupId) {
     return res.json({
-      msg: "please provide required query called id",
+      msg: "please provide required query called id and meetupId",
       status: 406,
     });
   }
@@ -28,30 +28,29 @@ export default async function handler(req, res) {
     }
 
     // Find with id
-    let findMeetup = await UserSchema.findOne(
-      { id },
-      { meetUps: { $elemMatch: { meetup_id: meetupId } } }
-    );
+    let findMeetups = await UserSchema.find({}, { meetUps: 1, _id: 0 });
 
-    if (!findMeetup) {
+    // Loop in Array
+    let all = [];
+    await findMeetups.map((item) => {
+      item.meetUps.map((ite) => {
+        all.push(ite);
+      });
+    });
+
+    let filter = await all.filter((item) => item.meetup_id === meetupId);
+    if (!filter[0]) {
       return res.json({
         msg: "can't find!",
         status: 404,
       });
     } else {
-      if (findMeetup.meetUps.length <= 0) {
-        return res.json({
-          msg: "can't find meetup!",
-          status: 404,
-        });
-      }
-
       await UserSchema.updateOne(
         { id },
         {
           $addToSet: {
             favorites: {
-              meetup_id: findMeetup.meetUps[0].meetup_id,
+              meetup_id: filter[0].meetup_id,
             },
           },
         },
