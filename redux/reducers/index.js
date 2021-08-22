@@ -1,10 +1,11 @@
 import { combineReducers } from "redux";
 import Toggle from "./toggle";
-import User from "./user";
+import { userReducer, userStatusReducer } from "./user";
 
 const Reducers = combineReducers({
   Toggle,
-  User,
+  User: userReducer,
+  userStatus: userStatusReducer,
 });
 
 export default Reducers;
