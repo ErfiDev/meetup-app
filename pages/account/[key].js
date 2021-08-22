@@ -3,6 +3,7 @@ import Head from "next/head";
 import { useEffect } from "react";
 import nProgress from "nprogress";
 import { useRouter } from "next/router";
+import Decoder from "../../utils/decoder";
 
 const AccountPage = () => {
   const router = useRouter();
@@ -33,18 +34,27 @@ const AccountPage = () => {
   );
 };
 
-export async function getServerSideProps({ params }) {
-  let { key } = params;
-  if (key !== "register") {
+export async function getServerSideProps({ params, req }) {
+  const { user } = req.cookies;
+  const decode = Decoder(user);
+
+  if (!decode) {
+    let { key } = params;
+    if (key !== "register") {
+      return {
+        notFound: true,
+      };
+    }
+
     return {
-      notFound: true,
+      props: {
+        name: "register",
+      },
     };
   }
 
   return {
-    props: {
-      name: "register",
-    },
+    notFound: true,
   };
 }
 
