@@ -8,7 +8,6 @@ const Favorites = () => {
   const router = useRouter();
   useEffect(() => {
     router.events.on("routeChangeStart", (url, { shallow }) => {
-      console.log(url, shallow);
       nProgress.start();
     });
 

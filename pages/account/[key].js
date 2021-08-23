@@ -8,7 +8,6 @@ import Decoder from "../../utils/decoder";
 const AccountPage = () => {
   const router = useRouter();
   const asPath = router.asPath;
-  console.log(asPath);
   useEffect(() => {
     router.events.on("routeChangeStart", (url, { shallow }) => {
       nProgress.start();

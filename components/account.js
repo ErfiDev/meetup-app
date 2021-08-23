@@ -1,12 +1,14 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import Image from "next/image";
 
 export const SignIn = ({ formHandler }) => {
   const [data, setData] = useState({
     username: "",
     password: "",
   });
+  let [toggle, setToggle] = useState(false);
   const router = useRouter();
 
   const onChange = (prop) => (event) => {
@@ -48,15 +50,35 @@ export const SignIn = ({ formHandler }) => {
               Password
             </label>
           </div>
-          <div className="md:w-2/3">
+          <div className="md:w-2/3 flex justify-center items-center">
             <input
-              className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+              className="input-signin-pass bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
               id="password"
               type="password"
               placeholder="Password"
               onChange={onChange("password")}
               value={data.password}
             />
+            <div
+              onClick={() => {
+                const input = document.querySelector(".input-signin-pass");
+                if (input.type === "password") {
+                  setToggle(true);
+                  return (input.type = "text");
+                } else {
+                  setToggle(false);
+                  input.type = "password";
+                }
+              }}
+              className="cursor-pointer ml-2"
+            >
+              <Image
+                src={toggle ? "/eye.png" : "/closed.png"}
+                alt="eye"
+                width="30px"
+                height="30px"
+              />
+            </div>
           </div>
         </div>
         <div className="md:flex md:items-center">
@@ -98,6 +120,7 @@ export const Register = ({ formHandler }) => {
     email: "",
     password: "",
   });
+  const [toggle, setToggle] = useState(false);
   const router = useRouter();
 
   const onChange = (prop) => (event) => {
@@ -159,15 +182,35 @@ export const Register = ({ formHandler }) => {
               Password
             </label>
           </div>
-          <div className="md:w-2/3">
+          <div className="md:w-2/3 flex justify-center items-center">
             <input
-              className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+              className="input-register-pass bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
               id="password"
               type="password"
               placeholder="Password"
               onChange={onChange("password")}
               value={data.password}
             />
+            <div
+              onClick={async () => {
+                const input = document.querySelector(".input-register-pass");
+                if (input.type === "password") {
+                  setToggle(true);
+                  return (input.type = "text");
+                } else {
+                  setToggle(false);
+                  input.type = "password";
+                }
+              }}
+              className="cursor-pointer ml-2"
+            >
+              <Image
+                src={toggle ? "/eye.png" : "/closed.png"}
+                alt="eye"
+                width="30px"
+                height="30px"
+              />
+            </div>
           </div>
         </div>
         <div className="md:flex md:items-center">
