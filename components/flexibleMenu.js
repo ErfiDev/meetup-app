@@ -8,6 +8,7 @@ export const FlexibleMenuButton = () => {
   const toggle = useSelector((state) => state.Toggle);
   const router = useRouter();
   let { asPath } = router;
+  const userStatus = useSelector((state) => state.userStatus);
 
   function changeToggle() {
     if (toggle) {
@@ -48,32 +49,63 @@ export const FlexibleMenuButton = () => {
           >
             <Link href="/">All meetups</Link>
           </li>
-          <li
-            className={
-              asPath === "/addNew"
-                ? "selected m-5 text-base antialiased text-white cursor-pointer header-list-options"
-                : "m-5 text-base antialiased text-white cursor-pointer header-list-options"
-            }
-            onClick={toFalse}
-          >
-            <Link href="/addNew">add new meetup</Link>
-          </li>
-          <li
-            className={
-              asPath === "/favorites"
-                ? "selected m-5 text-base antialiased text-white cursor-pointer header-list-options"
-                : "m-5 text-base antialiased text-white cursor-pointer header-list-options"
-            }
-            onClick={toFalse}
-          >
-            <Link href="/favorites">my favorites</Link>
-          </li>
-          <li
-            onClick={toFalse}
-            className="flexible-menu-signin text-base antialiased text-white cursor-pointer header-list-options"
-          >
-            <Link href="/account">sign in</Link>
-          </li>
+          {!userStatus ? (
+            <li
+              className={
+                "li-signin m-5 cursor-pointer text-base antialiased text-white"
+              }
+            >
+              <Link href="/account" passHref>
+                <a className="flex flex-row">
+                  sign in &nbsp;
+                  <Image
+                    src="/right.png"
+                    alt="right"
+                    width="20px"
+                    height="15px"
+                  />
+                </a>
+              </Link>
+            </li>
+          ) : (
+            <>
+              <li
+                className={
+                  asPath === "/addNew"
+                    ? "selected header-list-options m-5 cursor-pointer text-base antialiased text-white"
+                    : "header-list-options m-5 cursor-pointer text-base antialiased text-white"
+                }
+              >
+                <Link href="/addNew">Add new meetup</Link>
+              </li>
+              <li
+                className={
+                  asPath === "/favorites"
+                    ? "selected header-list-options m-5 cursor-pointer text-base antialiased text-white"
+                    : "header-list-options m-5 cursor-pointer text-base antialiased text-white"
+                }
+              >
+                <Link href="/favorites">My favorites</Link>
+              </li>
+              <li
+                className={
+                  "li-signin m-5 cursor-pointer text-base antialiased text-white"
+                }
+              >
+                <Link href="/dashboard" passHref>
+                  <a className="flex flex-row">
+                    Account &nbsp;
+                    <Image
+                      src="/right.png"
+                      alt="right"
+                      width="20px"
+                      height="15px"
+                    />
+                  </a>
+                </Link>
+              </li>
+            </>
+          )}
         </ul>
       </div>
     </>
