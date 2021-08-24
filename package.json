@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "axios": "^0.21.1",
     "bcrypt": "^5.0.1",
     "joi": "^17.4.2",
     "jsonwebtoken": "^8.5.1",
