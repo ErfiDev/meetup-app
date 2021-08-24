@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import nProgress from "nprogress";
 import { useRouter } from "next/router";
 import Decoder from "../../utils/decoder";
+import { loginUser } from "../../services/user";
 
 const AccountPage = () => {
   const router = useRouter();
@@ -20,7 +21,15 @@ const AccountPage = () => {
 
   async function formHandler(event, data) {
     event.preventDefault();
-    console.log(data);
+    try {
+      const { data: res } = await loginUser(data);
+      if (res.status !== 200) {
+        return console.log(res.msg);
+      }
+      console.log(res.token);
+    } catch (err) {
+      alert("error server");
+    }
   }
 
   return (
