@@ -2,7 +2,7 @@ import Head from "next/head";
 import { useEffect } from "react";
 import nProgress from "nprogress";
 import { useRouter } from "next/router";
-import Decoder from "../../utils/decoder";
+import Decoder from "utils/decoder";
 
 const Favorites = () => {
   const router = useRouter();

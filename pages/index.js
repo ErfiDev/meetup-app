@@ -1,12 +1,12 @@
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 import Head from "next/head";
-import Main from "../components/main/main";
+import Main from "components/main/main";
 import nProgress from "nprogress";
-import DummyData from "../meetUps.json";
-import getCookie from "../utils/cookie";
+import DummyData from "meetUps.json";
+import getCookie from "utils/cookie";
 import { useDispatch } from "react-redux";
-import Decoder from "../utils/decoder";
+import Decoder from "utils/decoder";
 
 const HomePage = ({ dataArray }) => {
   const router = useRouter();

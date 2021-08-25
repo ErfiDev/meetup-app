@@ -1,10 +1,10 @@
-import { SignIn } from "../../components/account";
+import { SignIn } from "components/account";
 import Head from "next/head";
 import { useEffect } from "react";
 import nProgress from "nprogress";
 import { useRouter } from "next/router";
-import Decoder from "../../utils/decoder";
-import { loginUser } from "../../services/user";
+import Decoder from "utils/decoder";
+import { loginUser } from "services/user";
 
 const AccountPage = () => {
   const router = useRouter();

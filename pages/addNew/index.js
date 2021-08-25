@@ -1,9 +1,9 @@
-import AddNewCom from "../../components/addNew";
+import AddNewCom from "components/addNew";
 import Head from "next/head";
 import { useEffect } from "react";
 import nProgress from "nprogress";
 import { useRouter } from "next/router";
-import Decoder from "../../utils/decoder";
+import Decoder from "utils/decoder";
 
 const AddNew = () => {
   const router = useRouter();

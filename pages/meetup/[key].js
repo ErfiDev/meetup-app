@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import { useEffect } from "react";
-import DummyData from "../../meetUps.json";
+import DummyData from "meetUps.json";
 import nProgress from "nprogress";
 import Image from "next/image";
 import Link from "next/link";
