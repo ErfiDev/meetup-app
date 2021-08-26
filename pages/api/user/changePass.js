@@ -1,6 +1,6 @@
-import UserSchema from "../../../schema/user";
+import UserSchema from "schema/user";
 import bcrypt from "bcrypt";
-import Connector from "../../../db/connector";
+import Connector from "db/connector";
 
 export default async function handler(req, res) {
   if (req.method !== "POST") {

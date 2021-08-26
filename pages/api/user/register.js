@@ -1,7 +1,7 @@
-import UserValidate from "../../../validation/user";
+import UserValidate from "validation/user";
 import bcrypt from "bcrypt";
-import Connector from "../../../db/connector";
-import UserSchema from "../../../schema/user";
+import Connector from "db/connector";
+import UserSchema from "schema/user";
 
 export default async function handler(req, res) {
   if (req.method === "GET") {

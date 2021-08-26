@@ -1,5 +1,5 @@
-import UserSchema from "../../../schema/user";
-import Connector from "../../../db/connector";
+import UserSchema from "schema/user";
+import Connector from "db/connector";
 import Nodemailer from "nodemailer";
 import bcrypt from "bcrypt";
 
