@@ -1,5 +1,5 @@
-import UserSchema from "../../../schema/user";
-import Connector from "../../../db/connector";
+import UserSchema from "schema/user";
+import Connector from "db/connector";
 
 export default async function handler(req, res) {
   if (req.method !== "POST") {

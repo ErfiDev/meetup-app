@@ -1,6 +1,6 @@
-import Connector from "../../../db/connector";
-import MeetupValidate from "../../../validation/meetup";
-import UserSchema from "../../../schema/user";
+import Connector from "db/connector";
+import MeetupValidate from "validation/meetup";
+import UserSchema from "schema/user";
 
 export default async function handler(req, res) {
   if (req.method !== "POST") {
