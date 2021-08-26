@@ -18,8 +18,13 @@ function Layout({ children }) {
         if (!value) {
           return dis({ type: "USER_STATUS_FALSE" });
         }
-        dis({ type: "USER_STATUS_TRUE" });
-        dis({ type: "SET_USER", payload: value.payload });
+        const now = new Date().now / 1000;
+        if (value.iat < now) {
+          document.cookie = "user = ";
+        } else {
+          dis({ type: "USER_STATUS_TRUE" });
+          dis({ type: "SET_USER", payload: value.payload });
+        }
       }
     }
 
