@@ -18,4 +18,7 @@ Axios.interceptors.response.use(null, (error) => {
   return Promise.reject(error);
 });
 
-export default Axios.post;
+export default {
+  post: Axios.post,
+  get: Axios.get,
+};

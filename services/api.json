@@ -6,5 +6,6 @@
   "changePass": "http://localhost:3000/api/user/changePass",
   "addFavorites": "http://localhost:3000/api/meetup/addFavorites",
   "joinMeetup": "http://localhost:3000/api/meetup/join",
-  "addMeetup": "http://localhost:3000/api/meetup/add"
+  "addMeetup": "http://localhost:3000/api/meetup/add",
+  "getMeetups": "http://localhost:3000/api/meetup/getMeetups"
 }
