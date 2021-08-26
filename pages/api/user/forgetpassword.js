@@ -15,8 +15,8 @@ export default async function handler(req, res) {
     port: 465,
     host: "smtp.gmail.com",
     auth: {
-      user: "fakeemailfortestindevelopment@gmail.com",
-      pass: "fakeemailfortestindevelopmentERFANHANIFEZADE",
+      user: process.env.emailHost,
+      pass: process.env.emailPass,
     },
     secure: true,
   });
@@ -68,7 +68,7 @@ export default async function handler(req, res) {
 
     let newPass = makeRandomPass();
     const emailData = {
-      from: "fakeemailfortestindevelopment@gmail.com", // sender address
+      from: process.env.emailHost, // sender address
       to: find.email, // list of receivers
       subject: "New Password in meetup app",
       text: "Do not forget again",
