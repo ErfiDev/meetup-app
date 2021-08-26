@@ -7,6 +7,8 @@ import { useEffect } from "react";
 import { FlexibleMenuButton } from "../components/flexibleMenu";
 import { Provider } from "react-redux";
 import Store from "../redux/store";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function MyApp({ Component, pageProps }) {
   useEffect(() => {
@@ -17,6 +19,7 @@ function MyApp({ Component, pageProps }) {
       <Layout>
         <Component {...pageProps} />
         <FlexibleMenuButton />
+        <ToastContainer />
       </Layout>
     </Provider>
   );
