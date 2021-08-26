@@ -4,13 +4,9 @@ import Head from "next/head";
 import Main from "components/main/main";
 import nProgress from "nprogress";
 import DummyData from "meetUps.json";
-import getCookie from "utils/cookie";
-import { useDispatch } from "react-redux";
-import Decoder from "utils/decoder";
 
 const HomePage = ({ dataArray }) => {
   const router = useRouter();
-  const dis = useDispatch();
 
   useEffect(() => {
     document.getElementById("__next").className =
@@ -18,21 +14,6 @@ const HomePage = ({ dataArray }) => {
     router.events.on("routeChangeStart", (url, { shallow }) => {
       nProgress.start();
     });
-
-    function auth() {
-      const get = getCookie("user");
-      if (!get) {
-        return dis({ type: "USER_STATUS_FALSE" });
-      } else {
-        const value = Decoder(get);
-        if (!value) {
-          return dis({ type: "USER_STATUS_FALSE" });
-        }
-        dis({ type: "USER_STATUS_TRUE" });
-      }
-    }
-
-    auth();
 
     return () => {
       nProgress.done();

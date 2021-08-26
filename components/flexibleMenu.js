@@ -54,6 +54,7 @@ export const FlexibleMenuButton = () => {
               className={
                 "li-signin m-5 cursor-pointer text-base antialiased text-white"
               }
+              onClick={toFalse}
             >
               <Link href="/account" passHref>
                 <a className="flex flex-row">
@@ -75,6 +76,7 @@ export const FlexibleMenuButton = () => {
                     ? "selected header-list-options m-5 cursor-pointer text-base antialiased text-white"
                     : "header-list-options m-5 cursor-pointer text-base antialiased text-white"
                 }
+                onClick={toFalse}
               >
                 <Link href="/addNew">Add new meetup</Link>
               </li>
@@ -91,6 +93,7 @@ export const FlexibleMenuButton = () => {
                 className={
                   "li-signin m-5 cursor-pointer text-base antialiased text-white"
                 }
+                onClick={toFalse}
               >
                 <Link href="/dashboard" passHref>
                   <a className="flex flex-row">
