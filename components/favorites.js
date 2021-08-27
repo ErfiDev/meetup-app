@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export default function Favorites(meetUps) {
+export default function Favorites({ meetUps }) {
   return (
     <section className="w-full min-h-half flex justify-around items-start flex-wrap">
       {meetUps.map((item) => (
@@ -13,7 +13,7 @@ export default function Favorites(meetUps) {
             width="750px"
             height="450px"
             className="w-full rounded overflow-hidden cursor-pointer object-cover"
-            src={item.image}
+            src={item.image ? item.image : "/picture.png"}
             alt="image"
             title={item.name}
           />

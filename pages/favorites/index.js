@@ -4,19 +4,20 @@ import nProgress from "nprogress";
 import { useRouter } from "next/router";
 import Decoder from "utils/decoder";
 import getFavorites from "redux/actions/getFavorites";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import FavoritesComponent from "components/favorites";
 
-const Favorites = ({ favorites }) => {
+const Favorites = ({ id }) => {
   const router = useRouter();
-  const favorite = useSelector((state) => state.Favorites);
-  console.log(favorite);
+  const dis = useDispatch();
+  const favorites = useSelector((state) => state.Favorites);
 
   useEffect(() => {
     router.events.on("routeChangeStart", (url, { shallow }) => {
       nProgress.start();
     });
 
-    getFavorites(favorites);
+    dis(getFavorites(id));
 
     return () => {
       nProgress.done();
@@ -28,7 +29,7 @@ const Favorites = ({ favorites }) => {
       <Head>
         <title>Favorites</title>
       </Head>
-      <section className="w-full min-h-half">this is a favoprites page</section>
+      <FavoritesComponent meetUps={favorites} />
     </>
   );
 };
@@ -39,7 +40,7 @@ export async function getServerSideProps({ req, res }) {
   if (decode) {
     return {
       props: {
-        favorites: decode.payload.data.favorites,
+        id: decode.payload.data.id,
       },
     };
   }

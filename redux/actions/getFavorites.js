@@ -1,17 +1,9 @@
-import { getMeetUps } from "services/meetup";
+import { getFavorites } from "services/meetup";
 
-export default function GetFavorites(favorites) {
-  return async (getDispatch) => {
-    const Meetups = await getMeetUps();
-    let favorite = [];
+export default function GetFavorites(id) {
+  return async (dispatch) => {
+    const favorites = await getFavorites(id);
 
-    favorites.map((item) => {
-      let filter = Meetups.filter(
-        (index) => index.meetup_id === item.meetup_id
-      );
-      favorite.push(filter[0]);
-    });
-
-    return getDispatch({ type: "GET_FAVORITES", payload: favorite });
+    return dispatch({ type: "GET_FAVORITES", payload: favorites.data.data });
   };
 }

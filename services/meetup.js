@@ -16,3 +16,7 @@ export function addFavorites(data) {
 export function getMeetUps() {
   return HttpService.get(Api.getMeetups);
 }
+
+export function getFavorites(id) {
+  return HttpService.get(Api.getFavorites + "?id=" + id);
+}
