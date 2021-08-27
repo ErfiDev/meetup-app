@@ -25,8 +25,15 @@ export default async function handler(req, res) {
       });
     }
 
+    let all = [];
+    await find.map((item) => {
+      item.meetUps.map((ite) => {
+        all.push(ite);
+      });
+    });
+
     res.json({
-      data: find.meetUps,
+      data: all,
       status: 200,
     });
   });

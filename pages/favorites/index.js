@@ -3,9 +3,11 @@ import { useEffect } from "react";
 import nProgress from "nprogress";
 import { useRouter } from "next/router";
 import Decoder from "utils/decoder";
+import { getMeetUps } from "services/meetup";
 
 const Favorites = () => {
   const router = useRouter();
+
   useEffect(() => {
     router.events.on("routeChangeStart", (url, { shallow }) => {
       nProgress.start();
