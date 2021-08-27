@@ -12,6 +12,7 @@ const AddNew = () => {
     event.preventDefault();
     console.log(data);
   }
+
   useEffect(() => {
     router.events.on("routeChangeStart", (url, { shallow }) => {
       nProgress.start();
