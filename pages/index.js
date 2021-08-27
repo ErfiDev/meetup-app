@@ -3,10 +3,13 @@ import { useRouter } from "next/router";
 import Head from "next/head";
 import Main from "components/main/main";
 import nProgress from "nprogress";
-import DummyData from "meetUps.json";
+import { useDispatch, useSelector } from "react-redux";
+import getMeetups from "redux/actions/getMeetups";
 
 const HomePage = ({ dataArray }) => {
   const router = useRouter();
+  const dis = useDispatch();
+  const meetups = useSelector((state) => state.Meetups);
 
   useEffect(() => {
     document.getElementById("__next").className =
@@ -14,6 +17,8 @@ const HomePage = ({ dataArray }) => {
     router.events.on("routeChangeStart", (url, { shallow }) => {
       nProgress.start();
     });
+
+    dis(getMeetups());
 
     return () => {
       nProgress.done();
@@ -25,17 +30,9 @@ const HomePage = ({ dataArray }) => {
       <Head>
         <title>Home</title>
       </Head>
-      <Main dataArray={dataArray} />
+      <Main dataArray={meetups} />
     </>
   );
 };
-
-export async function getServerSideProps(context) {
-  return {
-    props: {
-      dataArray: DummyData,
-    },
-  };
-}
 
 export default HomePage;

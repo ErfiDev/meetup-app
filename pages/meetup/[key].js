@@ -1,9 +1,8 @@
 import { useRouter } from "next/router";
 import { useEffect } from "react";
-import DummyData from "meetUps.json";
 import nProgress from "nprogress";
 import Image from "next/image";
-import Link from "next/link";
+import { getMeetUps } from "services/meetup";
 
 const MeetUp = ({ meetup }) => {
   const router = useRouter();
@@ -24,7 +23,7 @@ const MeetUp = ({ meetup }) => {
       className="w-full min-h-half flex flex-row justify-around items-center flex-wrap"
     >
       <Image
-        src={meetup.image}
+        src={meetup.image ? meetup.image : "/picture.png"}
         alt={meetup.name}
         width="450px"
         height="300px"
@@ -50,9 +49,10 @@ const MeetUp = ({ meetup }) => {
 };
 
 export async function getServerSideProps({ params }) {
+  let { data } = await getMeetUps();
   let { key } = params;
-  let condition = DummyData.some((item) => item.key === key);
-  let filter = DummyData.filter((item) => item.key === key)[0];
+  let condition = data.data.some((item) => item.meetup_id === key);
+  let filter = data.data.filter((item) => item.meetup_id === key)[0];
 
   if (!condition) {
     return {
