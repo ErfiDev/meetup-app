@@ -45,7 +45,7 @@ export default async function handler(req, res) {
         status: 404,
       });
     } else {
-      await UserSchema.updateOne(
+      await UserSchema.findOneAndUpdate(
         { id },
         {
           $addToSet: {
@@ -62,7 +62,7 @@ export default async function handler(req, res) {
             });
           }
 
-          res.json({
+          return res.json({
             msg: "add to favorites success!",
             status: 200,
           });

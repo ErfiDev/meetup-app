@@ -6,7 +6,7 @@ import nProgress from "nprogress";
 import { useDispatch, useSelector } from "react-redux";
 import getMeetups from "redux/actions/getMeetups";
 
-const HomePage = ({ dataArray }) => {
+const HomePage = () => {
   const router = useRouter();
   const dis = useDispatch();
   const meetups = useSelector((state) => state.Meetups);

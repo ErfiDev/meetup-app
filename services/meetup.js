@@ -9,8 +9,8 @@ export function joinMeetup(data) {
   return HttpService.post(Api.joinMeetup, data);
 }
 
-export function addFavorites(data) {
-  return HttpService.post(Api.addFavorites, data);
+export function addFavorites(id, meetupId) {
+  return HttpService.post(`${Api.addFavorites}?id=${id}&meetupId=${meetupId}`);
 }
 
 export function getMeetUps() {

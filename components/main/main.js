@@ -1,7 +1,22 @@
 import Image from "next/image";
 import Link from "next/link";
+import { useSelector } from "react-redux";
+import { addFavorites } from "services/meetup";
+import Toast from "utils/toast";
 
 function Main({ dataArray }) {
+  const userStatus = useSelector((state) => state.userStatus);
+  const User = useSelector((state) => state.User);
+
+  async function addFavorite(id, meetupId) {
+    try {
+      const { data } = await addFavorites(id, meetupId);
+      console.log(data);
+    } catch (err) {
+      return Toast("error", "we have the error on the server");
+    }
+  }
+
   return (
     <main className="w-full min-h-half flex justify-around items-start flex-wrap">
       {!dataArray ? (
@@ -29,6 +44,17 @@ function Main({ dataArray }) {
             <p className="text-base mt-10 text-purple-700 no-underline hover:underline">
               <Link href={`/meetup/${item.meetup_id}`}>Show details</Link>
             </p>
+            {userStatus ? (
+              <button
+                className="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
+                type="submit"
+                onClick={() => addFavorite(User.id, item.meetup_id)}
+              >
+                Add to favorite
+              </button>
+            ) : (
+              ""
+            )}
           </div>
         ))
       )}
