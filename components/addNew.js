@@ -37,7 +37,7 @@ const AddNew = ({ submitHandler }) => {
   }
 
   return (
-    <section className="w-full min-h-half flex justify-center items-center p-10">
+    <section className="w-full min-h-half flex flex-col justify-around items-center p-10">
       <form
         className="w-full max-w-sm"
         onSubmit={(e) => submitHandler(e, data)}
@@ -132,6 +132,14 @@ const AddNew = ({ submitHandler }) => {
           </div>
         </div>
       </form>
+      <div className="backlink-container mt-10 w-full flex justify-center items-center min-h-forBackLinks">
+        <button
+          className="bg-none transition-all outline-none border-none text-2xl"
+          onClick={() => router.back()}
+        >
+          Back
+        </button>
+      </div>
     </section>
   );
 };

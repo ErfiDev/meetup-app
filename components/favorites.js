@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Favorites({ meetUps }) {
   return (
-    <section className="w-full min-h-half flex justify-around items-start flex-wrap">
+    <section className="w-full min-h-half flex flex-col justify-around items-start flex-wrap">
       {meetUps.map((item) => (
         <div
           key={item.key}
@@ -28,6 +28,14 @@ export default function Favorites({ meetUps }) {
           </p>
         </div>
       ))}
+      <div className="backlink-container mt-10 w-full flex justify-center items-center min-h-forBackLinks">
+        <button
+          className="bg-none transition-all outline-none border-none text-2xl"
+          onClick={() => router.back()}
+        >
+          Back
+        </button>
+      </div>
     </section>
   );
 }

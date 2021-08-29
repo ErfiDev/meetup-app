@@ -36,7 +36,7 @@ function Main({ dataArray }) {
               title={item.name}
             />
             <h2 className="overflow-ellipsis text-left p-2 my-2.5">
-              <Link href={`/meetup/${item.meetu_id}`}>{item.name}</Link>
+              <Link href={`/meetup/${item.meetup_id}`}>{item.name}</Link>
             </h2>
             <address className="overflow-ellipsis text-left p-2 ">
               {item.address}
