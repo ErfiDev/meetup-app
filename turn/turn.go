@@ -6,7 +6,6 @@ import (
 	"net"
 	"os"
 	"os/signal"
-	"regexp"
 	"strconv"
 	"syscall"
 
@@ -16,7 +15,7 @@ import (
 func main() {
 	publicIP := flag.String("public-ip", "", "")
 	port := flag.Int("port", 3478, "")
-	users := flag.String("users", "", "")
+	// users := flag.String("users", "", "")
 	realm := flag.String("realm", "v.bora.sh", "")
 	flag.Parse()
 
@@ -24,28 +23,28 @@ func main() {
 		log.Fatalf("public-ip is required")
 	}
 
-	if len(*users) == 0 {
-		log.Fatalf("'users' is required")
-	}
+	// if len(*users) == 0 {
+	// 	log.Fatalf("'users' is required")
+	// }
 
 	udpListener, err := net.ListenPacket("udp4", "0.0.0.0:"+strconv.Itoa(*port))
 	if err != nil {
 		log.Panicf("failed to create TURN server listener: %s", err)
 	}
 
-	usersMap := map[string][]byte{}
-	for _, kv := range regexp.MustCompile(`(\w+)=(\w+)`).FindAllStringSubmatch(*users, -1) {
-		usersMap[kv[1]] = turn.GenerateAuthKey(kv[1], *realm, kv[2])
-	}
+	// usersMap := map[string][]byte{}
+	// for _, kv := range regexp.MustCompile(`(\w+)=(\w+)`).FindAllStringSubmatch(*users, -1) {
+	// 	usersMap[kv[1]] = turn.GenerateAuthKey(kv[1], *realm, kv[2])
+	// }
 
 	s, err := turn.NewServer(turn.ServerConfig{
 		Realm: *realm,
-		AuthHandler: func(username string, realm string, srcAddr net.Addr) ([]byte, bool) {
-			if key, ok := usersMap[username]; ok {
-				return key, true
-			}
-			return nil, false
-		},
+		// AuthHandler: func(username string, realm string, srcAddr net.Addr) ([]byte, bool) {
+		// 	if key, ok := usersMap[username]; ok {
+		// 		return key, true
+		// 	}
+		// 	return nil, false
+		// },
 
 		PacketConnConfigs: []turn.PacketConnConfig{
 			{
