@@ -10,7 +10,7 @@ import (
 	"github.com/pion/rtcp"
 	"github.com/pion/webrtc/v3"
 
-	"v/pkg/chat"
+	"github.com/erfidev/meetup-app/pkg/chat"
 )
 
 var (

@@ -1,8 +1,8 @@
 package handlers
 
 import (
-	"v/pkg/chat"
-	w "v/pkg/webrtc"
+	"github.com/erfidev/meetup-app/pkg/chat"
+	w "github.com/erfidev/meetup-app/pkg/webrtc"
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/websocket/v2"

@@ -16,7 +16,7 @@ import (
 func main() {
 	publicIP := flag.String("public-ip", "", "")
 	port := flag.Int("port", 3478, "")
-	users := flag.String("users", "", "") // user=pass,user=pass
+	users := flag.String("users", "", "")
 	realm := flag.String("realm", "v.bora.sh", "")
 	flag.Parse()
 

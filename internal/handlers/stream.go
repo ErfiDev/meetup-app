@@ -4,7 +4,8 @@ import (
 	"fmt"
 	"os"
 	"time"
-	w "v/pkg/webrtc"
+
+	w "github.com/erfidev/meetup-app/pkg/webrtc"
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/websocket/v2"

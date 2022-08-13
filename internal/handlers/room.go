@@ -4,8 +4,9 @@ import (
 	"fmt"
 	"os"
 	"time"
-	"v/pkg/chat"
-	w "v/pkg/webrtc"
+
+	"github.com/erfidev/meetup-app/pkg/chat"
+	w "github.com/erfidev/meetup-app/pkg/webrtc"
 
 	"crypto/sha256"
 

@@ -5,8 +5,8 @@ import (
 	"os"
 	"time"
 
-	"v/internal/handlers"
-	w "v/pkg/webrtc"
+	"github.com/erfidev/meetup-app/internal/handlers"
+	w "github.com/erfidev/meetup-app/pkg/webrtc"
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"

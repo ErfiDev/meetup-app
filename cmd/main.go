@@ -3,7 +3,7 @@ package main
 import (
 	"log"
 
-	"v/internal/server"
+	"github.com/erfidev/meetup-app/internal/server"
 )
 
 func main() {
