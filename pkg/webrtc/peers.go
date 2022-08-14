@@ -24,12 +24,12 @@ var (
 		ICETransportPolicy: webrtc.ICETransportPolicyRelay,
 		ICEServers: []webrtc.ICEServer{
 			{
-				URLs: []string{"stun:turn.quik.do:3478"},
+				URLs: []string{"turn:turn01.hubl.in?transport=udp"},
 			},
 			{
-				URLs:           []string{"turn:turn.quik.do:3478"},
-				Username:       "quik",
-				Credential:     "quikdo",
+				URLs:           []string{"turn:numb.viagenie.ca"},
+				Username:       "webrtc@live.com",
+				Credential:     "muazkh",
 				CredentialType: webrtc.ICECredentialTypePassword,
 			},
 		},
