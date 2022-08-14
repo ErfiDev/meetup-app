@@ -1,5 +1,5 @@
 build:
-	docker build -t v -f ./Dockerfile . && docker build -t turn -f ./Dockerfile.turn .
+	docker build -t meetup-container . 
 
 run-dev:
-	docker compose -f ./dev.yml up
+	docker run -p 8080:8080 meetup-container
