@@ -1,0 +1,7 @@
+node_modules/
+.env
+.txt
+.out 
+.test
+.vscode
+.idea
