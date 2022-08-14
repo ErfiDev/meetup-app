@@ -1,5 +1,5 @@
 build:
 	docker build -t meetup-container . 
 
-run-dev:
+run:
 	docker run -p 8080:8080 meetup-container
